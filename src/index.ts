@@ -20,7 +20,7 @@ app.use(express.json());
 app.use("/api/users", userRouter);
 
 // Health check
-app.get("/", (req, res) => {
+app.get("/test", (req, res) => {
   console.log("REST API called!");
   res.status(200).json("API Working");
 });
