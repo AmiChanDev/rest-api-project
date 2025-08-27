@@ -35,3 +35,7 @@ Thumbs.db
 
 # Optional coverage directory
 coverage/
+
+/src/generated/prisma
+
+/src/generated/prisma
