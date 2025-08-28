@@ -7,6 +7,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import { userRouter } from "./routes/userRouter.js";
+import { cityRouter } from "./routes/cityRouter.js";
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/users", userRouter);
+app.use("/api/cities", cityRouter);
 
 // Health check
 app.get("/test", (req, res) => {
