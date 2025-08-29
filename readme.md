@@ -56,6 +56,7 @@ _(city)_
 
 ```
 rest-api-project/
+├──prisma/
 ├──src
 |    ├── routes/
 |    ├── controllers/
