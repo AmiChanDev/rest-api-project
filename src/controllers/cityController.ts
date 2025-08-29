@@ -1,21 +1,21 @@
 import type { Request, Response } from "express";
 import * as cityModel from "../models/cityModel.js";
-
-export const getCities = async (req: Request, res: Response) => {
-  try {
-    const result = await cityModel.getCities();
-    res.json(result);
-    console.log("City JSON requested");
-  } catch (error) {
-    res.status(400).json({ message: error as Error });
-  }
-};
+import type { Prisma } from "@prisma/client";
 
 export const getCity = async (req: Request, res: Response) => {
   try {
-    const result = await cityModel.getCity(Number(req.params.id));
-    if (!result) return res.status(400).json({ message: "City not found" });
+    const filters: Prisma.CityWhereInput = {};
+
+    if (req.query.id) {
+      filters.id = Number(req.query.id);
+    }
+    if (req.query.name) {
+      filters.name = String(req.query.name);
+    }
+
+    const result = await cityModel.getCity(filters);
     res.json(result);
+    console.log("City JSON requested");
   } catch (error) {
     res.status(400).json({ message: error as Error });
   }
@@ -41,11 +41,11 @@ export const updateCity = async (req: Request, res: Response) => {
   }
 };
 
-export const deleteUser = async (req: Request, res: Response) => {
+export const deleteCity = async (req: Request, res: Response) => {
   try {
     const user = await cityModel.deleteCity(Number(req.params.id));
     res.json({ message: "City deleted" });
-    console.log(`City deleted`);
+    console.log(`City deleted with id:${Number(req.params.id)}`);
   } catch (error) {
     res.status(400).json({ message: (error as Error).message });
   }

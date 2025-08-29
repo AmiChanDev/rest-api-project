@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client/extension";
+import { Prisma, PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -7,22 +7,24 @@ type City = {
   name: string;
 };
 
-export const getCities = async () => {
-  return await prisma.city.findMany();
+// Get all or filtered cities
+export const getCity = async (filters: Prisma.CityWhereInput = {}) => {
+  return await prisma.city.findMany({
+    where: filters,
+  });
 };
 
-export const getCity = async (id: number) => {
-  return await prisma.city.findUnique({ where: { id } });
+// Create a new city
+export const createCity = async (data: Prisma.CityCreateInput) => {
+  return await prisma.city.create({ data });
 };
 
-export const createCity = async (cityData: City) => {
-  return await prisma.city.create({ cityData });
-};
-
-export const updateCity = async (id: number, data: City) => {
+// Update city
+export const updateCity = async (id: number, data: Prisma.CityUpdateInput) => {
   return await prisma.city.update({ where: { id }, data });
 };
 
+// Delete city
 export const deleteCity = async (id: number) => {
   return await prisma.city.delete({ where: { id } });
 };

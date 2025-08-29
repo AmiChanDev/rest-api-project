@@ -1,23 +1,32 @@
 import type { Request, Response } from "express";
 import * as userModel from "../models/userModel.js";
+import { Prisma } from "@prisma/client";
 
-export const getUsers = async (req: Request, res: Response) => {
+export const getUser = async (req: Request, res: Response) => {
   try {
-    const result = await userModel.getUsers();
+    const filters: Prisma.UserWhereInput = {};
+
+    if (req.query.id) {
+      filters.id = Number(req.query.id);
+    }
+    if (req.query.name) {
+      filters.name = String(req.query.name);
+    }
+    if (req.query.email) {
+      filters.email = String(req.query.email);
+    }
+    if (req.query.age) {
+      filters.age = Number(req.query.age);
+    }
+    if (req.query.cityId) {
+      filters.cityId = Number(req.query.cityId);
+    }
+
+    const result = await userModel.getUser(filters);
     res.json(result);
     console.log("User JSON requested");
   } catch (err) {
     res.status(400).json({ message: (err as Error).message });
-  }
-};
-
-export const getUser = async (req: Request, res: Response) => {
-  try {
-    const user = await userModel.getUserById(Number(req.params.id));
-    if (!user) return res.status(400).json({ message: "User not found" });
-    res.json(user);
-  } catch (error) {
-    res.status(400).json({ message: (error as Error).message });
   }
 };
 
@@ -45,7 +54,7 @@ export const deleteUser = async (req: Request, res: Response) => {
   try {
     const user = await userModel.deleteUser(Number(req.params.id));
     res.json({ message: "User deleted" });
-    console.log(`User deleted`);
+    console.log(`User deleted with id:${Number(req.params.id)}`);
   } catch (error) {
     res.status(400).json({ message: (error as Error).message });
   }
