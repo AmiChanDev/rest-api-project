@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "139a542a-c555-4bef-aa79-ed4b60908617",
 		"name": "REST API Starter",
+		"description": "# Doc",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
