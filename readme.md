@@ -48,11 +48,9 @@ The API will run on `http://localhost:5000` by default.
 | DELETE | /resources/:id | Delete a resource     |
 | GET    | /test          | Test the API          |
 
-resources {
-users;
-city;
-}
-_(Update endpoints to match your implementation)_
+resources:
+_(users)_
+_(city)_
 
 ## Project Structure
 
