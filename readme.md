@@ -46,8 +46,7 @@ The API will run on `http://localhost:5000` by default.
 | GET    | /resources/:id | Get a resource by ID  |
 | PUT    | /resources/:id | Update a resource     |
 | DELETE | /resources/:id | Delete a resource     |
-
-| TEST   | /test          | Test the API          |
+| GET    | /test          | Test the API          |
 
 resources {
 users;
