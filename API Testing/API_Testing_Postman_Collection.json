@@ -7,6 +7,25 @@
 	},
 	"item": [
 		{
+			"name": "Test API",
+			"item": [
+				{
+					"name": "testAPI",
+					"id": "fcf228cc-b81b-4f4e-bcb8-bca1db48b50e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/test"
+					},
+					"response": []
+				}
+			],
+			"id": "9f977890-cf67-4758-9db5-ff0db4ecc7be"
+		},
+		{
 			"name": "City",
 			"item": [
 				{
@@ -15,7 +34,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "504f7ca2-c7d6-4952-904a-32f5546d1832",
+								"id": "342cc448-49f3-4dda-86bf-a33e309c8604",
 								"exec": [
 									"let responseData = pm.response.json();\r",
 									"\r",
@@ -36,7 +55,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Test API\"\r\n}",
+							"raw": "{\r\n    \"name\": \"{{$randomCity}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -292,19 +311,6 @@
 				}
 			],
 			"id": "15af2f94-3adb-4480-808d-99c2265e0176"
-		},
-		{
-			"name": "testAPI",
-			"id": "fcf228cc-b81b-4f4e-bcb8-bca1db48b50e",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": "{{baseUrl}}/test"
-			},
-			"response": []
 		},
 		{
 			"name": "delete user",
