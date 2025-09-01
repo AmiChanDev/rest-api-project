@@ -14,22 +14,26 @@ model City {
 }
 
 model User {
-  id     Int    @id @default(autoincrement())
+  id     Int     @id @default(autoincrement())
   name   String
-  email  String @unique
+  email  String  @unique
   age    Int?
   cityId Int
-  city   City   @relation(fields: [cityId], references: [id])
+  city   City    @relation(fields: [cityId], references: [id])
+  orders Order[]
 }
 
 model Order {
-  id           Int        @id @default(autoincrement())
-  price        Float
-  order_typeId Int
-  order_type   Order_Type @relation(fields: [order_typeId], references: [id])
+  id            Int          @id @default(autoincrement())
+  price         Float
+  userId        Int
+  orderStatusId Int
+  user          User         @relation(fields: [userId], references: [id])
+  orderStatus   OrderStatus  @relation(fields: [orderStatusId], references: [id])
 }
 
-model Order_Type {
-  id Int @id @default(autoincrement())
+model OrderStatus {
+  id     Int     @id @default(autoincrement())
+  name   String
   orders Order[]
 }

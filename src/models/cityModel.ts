@@ -15,7 +15,7 @@ export const getCity = async (filters: Prisma.CityWhereInput = {}) => {
 };
 
 // Create a new city
-export const createCity = async (data: Prisma.CityCreateInput) => {
+export const createCity = async (data: City) => {
   return await prisma.city.create({ data });
 };
 
