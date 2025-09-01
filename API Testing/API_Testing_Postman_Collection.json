@@ -131,7 +131,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Test City\"\r\n}",
+							"raw": "{\r\n    \"name\":\"{{$randomCity}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -179,7 +179,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "cab7302f-0c68-4276-a64e-d5d3571cce54",
+								"id": "199aa819-06cf-42f1-a390-15c5e3456972",
 								"exec": [
 									"let responseData = pm.response.json();\r",
 									"\r",
@@ -200,7 +200,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"TestAPI\",\r\n    \"email\": \"APItesting@gmail.com\",\r\n    \"age\": 15,\r\n    \"cityId\": 1\r\n}",
+							"raw": "{\r\n    \"name\": \"{{$randomFullName}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"age\": 25,\r\n    \"cityId\": {{cityId}}\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
