@@ -273,7 +273,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"API Name Change Test\"\r\n}",
+							"raw": "{\r\n    \"name\":\"{{$randomFullName}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -394,7 +394,7 @@
 		},
 		{
 			"key": "cityId",
-			"value": 2,
+			"value": 1,
 			"type": "string"
 		}
 	]
