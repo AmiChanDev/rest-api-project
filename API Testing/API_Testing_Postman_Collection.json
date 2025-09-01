@@ -1,0 +1,395 @@
+{
+	"info": {
+		"_postman_id": "139a542a-c555-4bef-aa79-ed4b60908617",
+		"name": "REST API Starter",
+		"description": "# Doc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "City",
+			"item": [
+				{
+					"name": "create city",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "504f7ca2-c7d6-4952-904a-32f5546d1832",
+								"exec": [
+									"let responseData = pm.response.json();\r",
+									"\r",
+									"pm.collectionVariables.set(\"cityId\",responseData.id);\r",
+									"console.log(\"Postman Notifi ---Saved cityId:\", responseData.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "c7572102-dea5-461a-a350-685cd6c19bb3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test API\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}{{cityPath}}"
+					},
+					"response": []
+				},
+				{
+					"name": "get city",
+					"id": "1f5db034-69a6-47ee-aafb-ef70aad9a983",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}{{cityPath}}"
+					},
+					"response": []
+				},
+				{
+					"name": "get city by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ac24c535-7ecc-4cbc-92db-2aedef04564e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "3cd26016-6ada-4353-8a7f-0ee8a8c7835b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}{{cityPath}}/?id={{cityId}}",
+							"host": [
+								"{{baseUrl}}{{cityPath}}"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{cityId}}",
+									"id": 0
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update city",
+					"id": "00833af8-d279-41ef-9ea7-c0f2c6fc3580",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Test City\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{cityPath}}/:id",
+							"host": [
+								"{{baseUrl}}{{cityPath}}"
+							],
+							"path": [
+								":id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"id": 0,
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"id": 0,
+									"key": "id",
+									"value": "{{cityId}}",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "51f67127-e28a-47dc-b588-d86fc8a52025"
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "create user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cab7302f-0c68-4276-a64e-d5d3571cce54",
+								"exec": [
+									"let responseData = pm.response.json();\r",
+									"\r",
+									"pm.collectionVariables.set(\"userId\",responseData.id);\r",
+									"console.log(\"Postman Notifi ---Saved userId:\", responseData.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "8dda208a-4f2d-4a80-a458-180a4ad3b92b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"TestAPI\",\r\n    \"email\": \"APItesting@gmail.com\",\r\n    \"age\": 15,\r\n    \"cityId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}{{userPath}}"
+					},
+					"response": []
+				},
+				{
+					"name": "get user",
+					"id": "40709d83-49ce-422f-be82-bf8bb6d3b77c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}{{userPath}}"
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ac24c535-7ecc-4cbc-92db-2aedef04564e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "14fe1844-b74f-4e42-90b7-82a325a55eef",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}{{userPath}}?id={{userId}}",
+							"host": [
+								"{{baseUrl}}{{userPath}}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{userId}}",
+									"id": 0
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"id": "4d26b7f8-8720-42da-9715-1de750e04e77",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"API Name Change Test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{userPath}}/:id",
+							"host": [
+								"{{baseUrl}}{{userPath}}"
+							],
+							"path": [
+								":id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"id": 0,
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"id": 0,
+									"key": "id",
+									"value": "{{userId}}",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "15af2f94-3adb-4480-808d-99c2265e0176"
+		},
+		{
+			"name": "testAPI",
+			"id": "fcf228cc-b81b-4f4e-bcb8-bca1db48b50e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{baseUrl}}/test"
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"id": "ca4b647d-ad02-48f5-9beb-45fd1a47a0fb",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}{{userPath}}/:id",
+					"host": [
+						"{{baseUrl}}{{userPath}}"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"id": 0,
+							"key": "id",
+							"value": "{{userId}}",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete city",
+			"id": "a93e0504-63e3-4637-ba97-9c85ab9190a8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}{{cityPath}}/:id",
+					"host": [
+						"{{baseUrl}}{{cityPath}}"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"id": 0,
+							"key": "id",
+							"value": "{{cityId}}",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5000",
+			"type": "string"
+		},
+		{
+			"key": "userId",
+			"value": 8,
+			"type": "default"
+		},
+		{
+			"key": "userPath",
+			"value": "/api/user",
+			"type": "string"
+		},
+		{
+			"key": "cityPath",
+			"value": "/api/city",
+			"type": "string"
+		},
+		{
+			"key": "cityId",
+			"value": 2,
+			"type": "string"
+		}
+	]
+}
