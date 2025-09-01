@@ -21,3 +21,15 @@ model User {
   cityId Int
   city   City   @relation(fields: [cityId], references: [id])
 }
+
+model Order {
+  id           Int        @id @default(autoincrement())
+  price        Float
+  order_typeId Int
+  order_type   Order_Type @relation(fields: [order_typeId], references: [id])
+}
+
+model Order_Type {
+  id Int @id @default(autoincrement())
+  orders Order[]
+}
